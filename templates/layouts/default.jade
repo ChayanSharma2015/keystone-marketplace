@@ -38,10 +38,26 @@ html
 					each link in navLinks
 						li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
 					if user
-						li: a(href='/keystone') Open Keystone
-						li: a(href='/keystone/signout') Sign Out
+						if user.isAdmin
+							li: a(href='/keystone') My profile
+							li: a(href='/signout') Sign Out
+						else
+							li: a(href='/my/profile') Home
+							li: a(href='/my/shop/products') Shop
+							li: a(href='/my/cart') My Cart
+							li: a(href='/my/products') My Products
+							li: a(href='/my/product/upload') Upload Product
+							li: a(href='/my/profile/edit') Edit Profile
+							li: a(href='/my/password') Change Password
+							li: a(href='/signout') Sign Out	
 					else
-						li: a(href='/keystone/signin') Sign In
+						li: a(href='/') Home
+						li: a(href='/blog') Blog
+						li: a(href='/gallery') Gallery
+						li: a(href='/contact') Contact
+						li: a(href='/products') Products
+						li: a(href='/register') Register
+						li: a(href='/signin') Sign In
 		
 		//- body
 		.wrapper-inner

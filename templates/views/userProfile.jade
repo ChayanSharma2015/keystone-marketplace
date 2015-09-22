@@ -1,0 +1,16 @@
+extends ../layouts/default
+
+block css
+	link(rel="stylesheet", href="/js/lib/fancybox/jquery.fancybox.css")
+				
+block content
+	h1 Profile
+
+	ol
+
+		li Name : #{user.name.full}
+		li Email ID : #{user.email}
+		li Gender : #{user.gender}
+		li Date of birth : #{user.dob}
+		li Phone : #{user.phone}
+		li Address: #{user.address}

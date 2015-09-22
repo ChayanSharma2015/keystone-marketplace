@@ -1,0 +1,36 @@
+extends ../layouts/default
+
+block css
+	link(rel="stylesheet", href="/js/lib/fancybox/jquery.fancybox.css")
+				
+block content
+	h1 My Products
+	each product in products
+		.container
+			br
+			br
+			table.table(border="1 px solid" cellpadding="5px" cellspacing="5px" style="width:50% ;border-collapse: collapse;")
+				thead
+					tr
+						th Title
+						th Description
+						th Price(INR)
+						th Product Image
+				tbody
+					tr
+						td #{product.title}
+						td #{product.description}
+						td #{product.price}
+						td 
+							img(src=product._.image.limit(360,500), alt=product.name + 'image')
+					tr
+						td(align='center' colspan='2')
+							form(method='post' action='/my/products/edit')
+								input(type='hidden', name='action', value='edit')
+								input(type='hidden', name='product_id', value='#{product.id}')
+								button(type='submit').btn.btn-primary Edit Product
+						td(align='center' colspan='2')
+							form(method='post' action='/my/products/delete')
+								input(type='hidden', name='action', value='delete')
+								input(type='hidden', name='product_id', value='#{product.id}')
+								button(type='submit').btn.btn-primary Delete Product

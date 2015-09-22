@@ -1,0 +1,35 @@
+extends ../layouts/default
+
+block css
+	link(rel="stylesheet", href="/js/lib/fancybox/jquery.fancybox.css")
+				
+block content
+	h1 Edit Profile
+	if enquirySubmitted
+		h3 You have succesfully updated your profile.
+	else
+		form(method='post')
+			input(type='hidden', name='action', value='edit')
+			.form-group
+				label Name
+				input(type='text', name='name.full', value='#{user.name.full}' required).form-control
+			.form-group
+				label Email
+				input(type='email', name='email', value='#{user.email}' required).form-control
+			.form-group
+				label Gender
+				br
+				| 	Male
+				input(type='radio', name='gender', required, value='Male' checked)
+				| 	Female
+				input(type='radio', name='gender', required, value='Female') 
+			.form-group
+				label Date Of Birth
+				input(type='date', name='dob', value='#{user.dob}' required).form-control
+			.form-group
+				label Address
+				input(type='textarea', name='address', value='#{user.address}' rowspan='3' required).form-control
+			.form-group
+				label Phone number
+				input(type='number', name='phone', value='#{user.phone}' required).form-control
+			button(type='submit').btn.btn-primary Update

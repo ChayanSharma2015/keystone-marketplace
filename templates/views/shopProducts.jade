@@ -1,0 +1,57 @@
+extends ../layouts/default
+
+block css
+	link(rel="stylesheet", href="/js/lib/fancybox/jquery.fancybox.css")
+				
+block content
+	h1 Products
+	each product in products
+		if product.seller.id == user.id
+			.container
+				br
+				br
+				table.table(border="1 px solid" cellpadding="5px" cellspacing="5px" style="width:50% ;border-collapse: collapse;")
+					thead
+						tr
+							th Title
+							th Description
+							th Price(INR)
+							th Product Image
+							th Seller Name
+					tbody
+						tr
+							td #{product.title}
+							td #{product.description}
+							td #{product.price}
+							td 
+								img(src=product._.image.limit(360,500), alt=product.name + 'image')
+							td #{product.seller.name.full}
+						tr
+							td(colspan=5 , align='center' bgcolor='red')
+								This Product belongs to you.
+		else
+			.container
+				br
+				br
+				table.table(border="1 px solid" cellpadding="5px" cellspacing="5px" style="width:50% ;border-collapse: collapse;")
+					thead
+						tr
+							th Title
+							th Description
+							th Price(INR)
+							th Product Image
+							th Seller Name
+					tbody
+						tr
+							td #{product.title}
+							td #{product.description}
+							td #{product.price}
+							td 
+								img(src=product._.image.limit(360,500), alt=product.name + 'image')
+							td #{product.seller.name.full}
+						tr
+							td
+								form(method='post' action='/my/cart/add/product')
+									input(type='hidden', name='action', value='cart')
+									input(type='hidden', name='product_id', value='#{product.id}')
+									button(type='submit').btn.btn-primary Add to cart

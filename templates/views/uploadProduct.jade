@@ -1,0 +1,25 @@
+extends ../layouts/default
+
+block css
+	link(rel="stylesheet", href="/js/lib/fancybox/jquery.fancybox.css")
+				
+block content
+	h1 Upload Product
+	if enquirySubmitted
+		h3 You have succesfully Uploaded your product.
+	else
+		form(method='post',enctype="multipart/form-data")
+			input(type='hidden', name='action', value='uploadProduct')
+			.form-group
+				label Title
+				input(type='text', name='title', required).form-control
+			.form-group
+				label Description
+				textarea(name='description', rows='5', placeholder='Describe your product' required).form-control
+			.form-group
+				label Price
+				input(type='number', name='price', required).form-control
+			.form-group
+				label Product Image
+				input(type='file', name='image_upload', accept='image/*').form-control
+			button(type='submit').btn.btn-primary Upload Product

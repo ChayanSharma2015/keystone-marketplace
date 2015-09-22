@@ -1,0 +1,27 @@
+extends ../layouts/default
+
+block css
+	link(rel="stylesheet", href="/js/lib/fancybox/jquery.fancybox.css")
+				
+block content
+	h1 Products
+	each product in products
+		.container
+			br
+			br
+			table.table(border="1 px solid" cellpadding="5px" cellspacing="5px" style="width:50% ;border-collapse: collapse;")
+				thead
+					tr
+						th Title
+						th Description
+						th Price(INR)
+						th Seller Name
+						th Product Image
+				tbody
+					tr
+						td #{product.title}
+						td #{product.description}
+						td #{product.price}
+						td #{product.seller.name.full}
+						td 
+							img(src=product._.image.limit(360,500), alt=product.name + 'image')

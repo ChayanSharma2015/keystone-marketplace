@@ -31,6 +31,7 @@ keystone.init({
 	'ga domain': process.env.GA_DOMAIN,
 	
 	'chartbeat property': process.env.CHARTBEAT_PROPERTY,
+	'cloudinary config' : process.env.CLOUDINARY_URL,
 	'chartbeat domain': process.env.CHARTBEAT_DOMAIN
 	
 });

@@ -1,0 +1,42 @@
+extends ../layouts/default
+
+block intro
+	h1 Register
+	//- p.lead This is an example contact form, demonstrating how to process forms and save data with Keystone.
+	//- p.lead Please follow us for updates to the demo site.
+		
+block content
+	if enquirySubmitted
+		h3 You have been succesfully registered on the website.
+	else	
+		form(method='post')
+			input(type='hidden', name='action', value='registerUser')
+			.form-group(class=validationErrors.name ? 'has-error' : null)
+				label Name
+				input(type='text', name='name.full', required).form-control
+			.form-group(class=validationErrors.email ? 'has-error' : null)
+				label Email
+				input(type='email', name='email', required).form-control
+			.form-group
+				label Password
+				input(type='password', name='password', required).form-control
+			.form-group
+				label Confirm Password
+				input(type='password', name='password_confirm', required).form-control
+			.form-group
+				label Gender
+				br
+				| 	Male
+				input(type='radio', name='gender', required, value='Male')
+				| 	Female
+				input(type='radio', name='gender', required, value='Female') 
+			.form-group
+				label Date Of Birth
+				input(type='date', name='dob', required).form-control
+			.form-group
+				label Address
+				textarea(name='address', rows='5' required).form-control
+			.form-group
+				label Phone number
+				input(type='number', name='phone', required).form-control
+			button(type='submit').btn.btn-primary Register

@@ -4,10 +4,8 @@ exports = module.exports = function(req, res) {
 	
 	var view = new keystone.View(req, res),
 		locals = res.locals;
+
+	view.query('products', keystone.list('Product').model.find().where('seller',req.user._id).sort('sortOrder'));
 	
-	locals.section = 'gallery';
-	
-	view.query('galleries', keystone.list('Gallery').model.find().sort('sortOrder'));
-	
-	view.render('gallery');	
+	view.render('myProducts');
 }

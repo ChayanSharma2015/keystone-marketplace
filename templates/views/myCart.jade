@@ -1,0 +1,36 @@
+extends ../layouts/default
+
+block css
+	link(rel="stylesheet", href="/js/lib/fancybox/jquery.fancybox.css")
+
+block content
+	h1 My Cart
+	each cartItem in userCart.cart
+		.container
+			br
+			br
+			table.table(border="1 px solid" cellpadding="5px" cellspacing="5px" style="width:50% ;border-collapse: collapse;")
+				thead
+					tr
+						th Title
+						th Description
+						th Price(INR)
+						th Product Image
+				tbody
+					tr
+						td #{cartItem.title}
+						td #{cartItem.description}
+						td #{cartItem.price}
+						td 
+							img(src=cartItem._.image.limit(360,500), alt=cartItem.name + 'image')
+					tr
+						td(colspan='2',align='center')
+							form(method='post' action='/buyProduct')
+								input(type='hidden', name='action', value='hello')
+								input(type='hidden', name='cartItem_id', value='#{cartItem._id}')
+								button(type='submit').btn.btn-primary Buy Now
+						td(colspan='2',align='center')
+							form(method='post' action='/my/cart/delete/product')
+								input(type='hidden', name='action', value='cart')
+								input(type='hidden', name='cartItem_id', value='#{cartItem._id}')
+								button(type='submit').btn.btn-primary Remove from cart

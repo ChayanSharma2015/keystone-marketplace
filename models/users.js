@@ -16,8 +16,12 @@ User.add({
 	name: { type: Types.Name, required: true, index: true },
 	email: { type: Types.Email, initial: true, required: true, index: true },
 	phone: { type: String, width: 'short' },
-	photo: { type: Types.CloudinaryImage, collapse: true },
-	password: { type: Types.Password, initial: true, required: false }
+	photo: { type: Types.CloudinaryImage, collapse: false },
+	dob: { type: Date, initial: false, index: true },
+	gender: { type: String, initial: false, index: true },
+	address: { type: String, initial: false,index: true },	
+	password: { type: Types.Password, initial: true, required: false },
+	cart: {type: Types.Relationship, many: true, ref: 'Product', initial: false}
 }, 'Permissions', {
 	isAdmin: { type: Boolean, label: 'Can access Keystone' },
 	isProtected: { type: Boolean, noedit: true }
