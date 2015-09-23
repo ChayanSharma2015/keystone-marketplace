@@ -1,4 +1,4 @@
-extends ../layouts/default
+extends ../../../layouts/default
 
 block css
 	link(rel="stylesheet", href="/js/lib/fancybox/jquery.fancybox.css")
@@ -51,7 +51,7 @@ block content
 							td #{product.seller.name.full}
 						tr
 							td
-								form(method='post' action='/my/cart/add/product')
+								form(method='post' action='/my/cart/add')
 									input(type='hidden', name='action', value='cart')
 									input(type='hidden', name='product_id', value='#{product.id}')
 									button(type='submit').btn.btn-primary Add to cart

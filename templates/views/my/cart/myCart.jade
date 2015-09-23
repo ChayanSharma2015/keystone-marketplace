@@ -1,4 +1,4 @@
-extends ../layouts/default
+extends ../../../layouts/default
 
 block css
 	link(rel="stylesheet", href="/js/lib/fancybox/jquery.fancybox.css")
@@ -25,12 +25,12 @@ block content
 							img(src=cartItem._.image.limit(360,500), alt=cartItem.name + 'image')
 					tr
 						td(colspan='2',align='center')
-							form(method='post' action='/buyProduct')
+							form(method='post' action='/my/cart/buy')
 								input(type='hidden', name='action', value='hello')
 								input(type='hidden', name='cartItem_id', value='#{cartItem._id}')
 								button(type='submit').btn.btn-primary Buy Now
 						td(colspan='2',align='center')
-							form(method='post' action='/my/cart/delete/product')
+							form(method='post' action='/my/cart/delete')
 								input(type='hidden', name='action', value='cart')
 								input(type='hidden', name='cartItem_id', value='#{cartItem._id}')
 								button(type='submit').btn.btn-primary Remove from cart

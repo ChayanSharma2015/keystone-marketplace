@@ -56,23 +56,23 @@ exports = module.exports = function(app) {
 	app.all('/contact', routes.views.contact);
 	app.all('/products', routes.views.products);
 	app.all('/register', routes.views.register);
-
-	app.all('/my/profile', routes.views.userProfile);
-	app.all('/my/profile/edit', routes.views.editProfile);
-
-	app.all('/my/shop/products', routes.views.shopProducts);
-	app.all('/my/products', routes.views.myProducts);
-	app.all('/my/products/upload', routes.views.uploadProduct);
-	app.all('/my/products/edit', routes.views.editProduct);
-	app.all('/my/products/delete', routes.views.deleteProduct);
-	
-	app.all('/my/cart', routes.views.myCart);
-	app.all('/my/cart/add', routes.views.addToCart);
-	app.all('/my/cart/delete', routes.views.deleteCartProduct);
-	
-	app.all('/my/password', routes.views.changePassword);
 	app.all('/signin', routes.views.signin);
-	app.all('/signout', routes.views.signout);
+
+	app.all('/my/profile', routes.views.my.profile.myProfile);
+	app.all('/my/profile/edit', routes.views.my.profile.edit);
+	app.all('/my/password', routes.views.my.profile.changePassword);
+	app.all('/signout', routes.views.my.profile.signout);
+
+	app.all('/my/shop', routes.views.my.product.shop);
+	app.all('/my/products', routes.views.my.product.list);
+	app.all('/my/products/upload', routes.views.my.product.upload);
+	app.all('/my/products/edit', routes.views.my.product.edit);
+	
+	app.all('/my/cart', routes.views.my.cart.myCart);
+	app.all('/my/cart/add', routes.views.my.cart.add);
+	app.all('/my/cart/delete', routes.views.my.cart.delete);
+	
+	
 	
 	// Downloads
 	app.get('/download/users', routes.download.users);

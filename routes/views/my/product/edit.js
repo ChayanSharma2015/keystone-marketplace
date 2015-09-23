@@ -18,18 +18,6 @@ exports = module.exports = function(req, res) {
 			});
 		});
 
-	view.on('post', { action: 'delete' }, function(next) {
-		console.log("i am in controller  1");
-		var product = Product.model.findOne().where('_id',req.body.product_id);
-			product.exec(function(err,result){
-				console.log('Result is : '+result);
-				result.remove(function(err){
-					if(err) console.log(err);
-					else res.redirect('/my/products');
-				});
-			});
-		});
-
 	view.on('post', { action: 'update' }, function(next) {
 		
 		var product = Product.model.findOne().where('_id',req.body.product_id);
@@ -48,5 +36,5 @@ exports = module.exports = function(req, res) {
 		});
 	});
 	
-	view.render('editProduct');
+	view.render('my/product/edit');
 };

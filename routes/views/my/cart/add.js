@@ -30,5 +30,5 @@ exports = module.exports = function(req, res) {
 		}
 	});
 	view.query('userCart', keystone.list('User').model.findOne().where('_id',req.user._id).populate('cart'));
-	view.render('myCart');
+	view.render('my/cart/myCart');
 }

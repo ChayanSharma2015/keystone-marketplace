@@ -21,5 +21,5 @@ exports = module.exports = function(req, res) {
 		});
 		
 	});
-	view.render('editProfile');
-}
+	view.render('my/profile/edit');
+};

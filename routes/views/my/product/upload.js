@@ -31,6 +31,5 @@ exports = module.exports = function(req, res) {
 		});
 		
 	});
-	
-	view.render('uploadProduct');
-}
+	view.render('my/product/upload');
+};

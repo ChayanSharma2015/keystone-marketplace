@@ -7,5 +7,5 @@ exports = module.exports = function(req, res) {
 	
 	view.query('products', keystone.list('Product').model.find().populate('seller').sort('sortOrder'));
 	view.query('userCart', keystone.list('User').model.findOne().where('_id',req.user._id).populate('cart'));
-	view.render('shopProducts');
+	view.render('my/product/shop');
 }

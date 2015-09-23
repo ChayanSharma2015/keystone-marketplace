@@ -1,4 +1,4 @@
-extends ../layouts/default
+extends ../../../layouts/default
 
 block css
 	link(rel="stylesheet", href="/js/lib/fancybox/jquery.fancybox.css")
@@ -18,7 +18,7 @@ block content
 				label Description
 				input(type='text', name='description', rows='5', value='#{productDetails.description}').form-control
 			.form-group
-				label Price
+				label Price(INR)
 				input(type='number', name='price', value='#{productDetails.price}').form-control
 			.form-group
 				label Product Image

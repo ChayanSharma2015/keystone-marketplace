@@ -11,8 +11,6 @@ exports = module.exports = function(req, res) {
 
 	view.on('post', { action: 'editPassword' }, function(next) {
 
-		console.log('OLD PASSWORD : '+req.body.oldPassword);
-		//console.log('DB PASSWORD : '+req.user._.password);
 		var updater = req.user.getUpdateHandler(req);
 
 		req.user._.password.compare(req.body.oldPassword, function(err, isMatch) {
@@ -27,11 +25,13 @@ exports = module.exports = function(req, res) {
 					}
 					next();
 				});
-			} else {
+			} 
+			else {
+				req.flash('error', 'Sorry! Your entered incorrect old password, please try again.');
 				next(err);
 			}
 		});
 	});
-	view.render('changePassword');
+	view.render('my/profile/changePassword');
 }
  

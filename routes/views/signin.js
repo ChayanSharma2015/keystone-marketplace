@@ -32,7 +32,7 @@ exports = module.exports = function(req, res) {
 			} else if ('function' === typeof keystone.get('signin redirect')) {
 				keystone.get('signin redirect')(user, req, res);
 			} else if(user.isAdmin === false){
-				res.redirect('/userProfile');
+				res.redirect('/my/profile');
 			} else {
 				res.redirect('/keystone');
 			}
@@ -50,5 +50,4 @@ exports = module.exports = function(req, res) {
 	} else {
 		renderView();
 	}
-
 };

@@ -1,4 +1,4 @@
-extends ../layouts/default
+extends ../../../layouts/default
 
 block css
 	link(rel="stylesheet", href="/js/lib/fancybox/jquery.fancybox.css")
@@ -30,7 +30,7 @@ block content
 								input(type='hidden', name='product_id', value='#{product.id}')
 								button(type='submit').btn.btn-primary Edit Product
 						td(align='center' colspan='2')
-							form(method='post' action='/my/products/delete')
+							form(method='post' action='/my/products')
 								input(type='hidden', name='action', value='delete')
 								input(type='hidden', name='product_id', value='#{product.id}')
 								button(type='submit').btn.btn-primary Delete Product
